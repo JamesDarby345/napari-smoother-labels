@@ -220,13 +220,13 @@ class QtLabelsControls(QtLayerControls):
             True,
             'activate_labels_fill_mode',
         )
-        # self.erase_button = self._radio_button(
-        #     layer,
-        #     'erase',
-        #     Mode.ERASE,
-        #     True,
-        #     'activate_labels_erase_mode',
-        # )
+        self.erase_button = self._radio_button(
+            layer,
+            'erase',
+            Mode.ERASE,
+            True,
+            'activate_labels_erase_mode',
+        )
         # don't bind with action manager as this would remove "Toggle with {shortcut}"
         self._on_editable_or_visible_change()
 
