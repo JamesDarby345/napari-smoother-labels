@@ -28,7 +28,7 @@ _default_shortcuts = {
     ],
     'napari:hold_for_pan_zoom': [KeyCode.Space],
     # labels
-    'napari:activate_labels_erase_mode': [KeyCode.Digit1, KeyCode.KeyE],
+    'napari:activate_labels_erase_mode': [KeyCode.Digit1],
     'napari:activate_labels_paint_mode': [KeyCode.Digit2, KeyCode.KeyP],
     'napari:activate_labels_polygon_mode': [KeyCode.Digit3],
     'napari:activate_labels_fill_mode': [KeyCode.Digit4, KeyCode.KeyF],

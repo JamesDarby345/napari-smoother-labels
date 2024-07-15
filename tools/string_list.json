@@ -511,7 +511,6 @@
       "picker",
       "shuffle",
       "napari.layers.Labels",
-      "napari:activate_labels_erase_mode",
       "napari:activate_labels_fill_mode",
       "napari:activate_labels_paint_mode",
       "napari:activate_labels_pan_zoom_mode",
