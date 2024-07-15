@@ -57,23 +57,19 @@ vec3 calculateGradient(vec3 loc, vec3 step, out int n_bg_borders) {
     return G;
 }
 vec3 calculateIsotropicGradient(vec3 loc, vec3 step) {
-    const int weights[3] = int[3](1, 2, 4);
+    // calculate gradient within the volume by finite differences
+    // using a 3D sobel-feldman kernel
     vec3 G = vec3(0.0);
     for (int i=-1; i <= 1; i++) {
-        int absi = abs(i);
         for (int j=-1; j <= 1; j++) {
-            int absj = abs(j);
             for (int k=-1; k <= 1; k++) {
-                int absk = abs(k);
                 float val = colorToVal($get_data(loc + vec3(i, j, k) * step));
-                
-                int wx = weights[min(absj + absk, 2)];
-                int wy = weights[min(absi + absk, 2)];
-                int wz = weights[min(absi + absj, 2)];
-                
-                G.x += -float(i * wx) * val;
-                G.y += -float(j * wy) * val;
-                G.z += -float(k * wz) * val;
+                G.x += val * -float(i) *
+                    (1 + float(j == 0 || k == 0) + 2 * float(j == 0 && k == 0));
+                G.y += val * -float(j) *
+                    (1 + float(i == 0 || k == 0) + 2 * float(i == 0 && k == 0));
+                G.z += val * -float(k) *
+                    (1 + float(i == 0 || j == 0) + 2 * float(i == 0 && j == 0));
             }
         }
     }
