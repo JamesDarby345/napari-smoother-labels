@@ -123,7 +123,7 @@ vec4 calculateShadedCategoricalColor(vec4 betterColor, vec3 loc, vec3 step)
         if (n_bg_borders > 0) {
             // to fix dim pixels due to poor normal estimation,
             // we give a default lambda to pixels surrounded by background
-            lambertTerm = 0.5;
+            lambertTerm = 1;
         }
 
         // Calculate mask
