@@ -100,13 +100,6 @@ vec4 calculateShadedCategoricalColor(vec4 betterColor, vec3 loc, vec3 step)
 
     N = normalize(N);
 
-    color1 = $get_data(loc+vec3(0.0,0.0,-step[2]));
-    color2 = $get_data(loc+vec3(0.0,0.0,step[2]));
-    val1 = colorToVal(color1);
-    val2 = colorToVal(color2);
-    N[2] = val1 - val2;
-    n_bg_borders += detectAdjacentBackground(val1, val2);
-
     // Normalize and flip normal so it points towards viewer
     N = normalize(N);
     float Nselect = float(dot(N,V) > 0.0);
