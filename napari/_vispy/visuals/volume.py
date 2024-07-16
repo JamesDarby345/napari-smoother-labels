@@ -239,7 +239,7 @@ class Volume(TextureMixin, BaseVolume):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.unfreeze()
-        self.iso_gradient = False
+        self.iso_gradient = True
         self.freeze()
 
     @property
